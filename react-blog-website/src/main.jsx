@@ -9,6 +9,7 @@ import About from './pages/About.jsx';
 import Contact from './pages/Contact.jsx';
 import Services from './pages/Services.jsx';
 import Erro404 from './pages/Erro404.jsx';
+import SingleBlog from './pages/SingleBlog.jsx';
 
 const router = createBrowserRouter([
   {
@@ -38,6 +39,11 @@ const router = createBrowserRouter([
       {
         path: "*",
         element: <Erro404/>
+      },
+      {
+        path: "/blogs/:id",
+        element: <SingleBlog/>, 
+        loader: ({params}) => fetch(`http://localhost:5000/blogs/${params.id}`)
       }
     ]
   },
